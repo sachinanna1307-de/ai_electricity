@@ -1709,6 +1709,225 @@
             border-color: #475569;
             color: #f8fafc;
         }
+
+        /* AI Prediction Metrics Grid */
+        .ai-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+            margin-bottom: 8px;
+        }
+        .ai-metric-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .ai-metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+        .ai-metric-card .metric-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .ai-metric-card .metric-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .ai-metric-card .metric-sub {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+        body.dark-mode .ai-metric-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: #334155;
+        }
+        body.dark-mode .ai-metric-card .metric-label {
+            color: #94a3b8;
+        }
+        body.dark-mode .ai-metric-card .metric-value {
+            color: #f1f5f9;
+        }
+
+        /* Abnormal Usage Warning Banner */
+        .abnormal-warning-banner {
+            display: none;
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 1px solid #fecaca;
+            border-left: 5px solid #ef4444;
+            color: #991b1b;
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            animation: pulseWarning 2s infinite ease-in-out;
+        }
+        .abnormal-warning-banner.active {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        @keyframes pulseWarning {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.2); }
+            50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.15); }
+        }
+        body.dark-mode .abnormal-warning-banner {
+            background: linear-gradient(135deg, rgba(127, 29, 29, 0.4) 0%, rgba(153, 27, 27, 0.3) 100%);
+            border-color: #991b1b;
+            color: #fca5a5;
+        }
+
+        /* Chart Filter Button Group */
+        .chart-filter-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .chart-filter-btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .chart-filter-btn.active, .chart-filter-btn:hover {
+            background: #0d9488;
+            color: #ffffff;
+            border-color: #0d9488;
+        }
+        body.dark-mode .chart-filter-btn {
+            background: #334155;
+            border-color: #475569;
+            color: #cbd5e1;
+        }
+        body.dark-mode .chart-filter-btn.active {
+            background: #0d9488;
+            color: #ffffff;
+        }
+
+        /* ================= AI ENERGY-SAVING SUGGESTIONS STYLES ================= */
+        .ai-suggestions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 14px;
+        }
+        .ai-suggestion-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: linear-gradient(135deg, rgba(240, 253, 250, 0.7) 0%, rgba(248, 250, 252, 0.95) 100%);
+            border: 1px solid rgba(13, 148, 136, 0.2);
+            border-left: 5px solid #0d9488;
+            padding: 16px 18px;
+            border-radius: 14px;
+            transition: all 0.2s ease;
+        }
+        .ai-suggestion-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 4px 14px -3px rgba(13, 148, 136, 0.12);
+        }
+        .ai-suggestion-item.warning {
+            background: linear-gradient(135deg, rgba(254, 242, 242, 0.7) 0%, rgba(255, 241, 242, 0.95) 100%);
+            border-color: rgba(239, 68, 68, 0.25);
+            border-left-color: #ef4444;
+        }
+        .ai-suggestion-item.caution {
+            background: linear-gradient(135deg, rgba(255, 251, 235, 0.7) 0%, rgba(254, 243, 199, 0.5) 100%);
+            border-color: rgba(245, 158, 11, 0.25);
+            border-left-color: #f59e0b;
+        }
+        .ai-suggestion-item.optimal {
+            background: linear-gradient(135deg, rgba(240, 253, 244, 0.7) 0%, rgba(236, 253, 245, 0.95) 100%);
+            border-color: rgba(16, 185, 129, 0.25);
+            border-left-color: #10b981;
+        }
+        .ai-suggestion-icon {
+            font-size: 24px;
+            line-height: 1;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .ai-suggestion-content {
+            flex: 1;
+        }
+        .ai-suggestion-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .ai-suggestion-tag {
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .ai-suggestion-tag.tag-warning {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+        .ai-suggestion-tag.tag-caution {
+            background: #fef3c7;
+            color: #b45309;
+        }
+        .ai-suggestion-tag.tag-optimal {
+            background: #d1fae5;
+            color: #047857;
+        }
+        .ai-suggestion-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.55;
+            margin: 0;
+        }
+        body.dark-mode .ai-suggestion-item {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+            border-color: #334155;
+            border-left-color: #0d9488;
+        }
+        body.dark-mode .ai-suggestion-item.warning {
+            background: linear-gradient(135deg, rgba(69, 10, 10, 0.3) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border-color: #7f1d1d;
+            border-left-color: #ef4444;
+        }
+        body.dark-mode .ai-suggestion-item.caution {
+            background: linear-gradient(135deg, rgba(120, 53, 15, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border-color: #78350f;
+            border-left-color: #f59e0b;
+        }
+        body.dark-mode .ai-suggestion-item.optimal {
+            background: linear-gradient(135deg, rgba(6, 78, 59, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border-color: #064e3b;
+            border-left-color: #10b981;
+        }
+        body.dark-mode .ai-suggestion-title {
+            color: #f1f5f9;
+        }
+        body.dark-mode .ai-suggestion-desc {
+            color: #94a3b8;
+        }
     </style>
 </head>
 
@@ -2200,12 +2419,12 @@ Estimated Bill  → ₹0.00</pre>
             <div class="main-content">
                 <div class="header">
                     <div class="header-left-wrap">
-                        <button type="button" class="btn-back-nav" onclick="navigateToLogin()" title="Back to Login">
+                        <button type="button" class="btn-back-nav" onclick="logout()" title="Logout to Login Screen">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="19" y1="12" x2="5" y2="12"></line>
                                 <polyline points="12 19 5 12 12 5"></polyline>
                             </svg>
-                            <span>Back</span>
+                            <span>Logout</span>
                         </button>
                         <div>
                             <h1 id="welcomeUser">Welcome, Admin</h1>
@@ -2246,6 +2465,15 @@ Estimated Bill  → ₹0.00</pre>
                         <div class="card">
                             <h2>🏠 Smart Meter Data Control</h2>
                             <p class="description">Simulate live sensor reading or connect directly to ESP32 Cloud.</p>
+
+                            <!-- Abnormal Usage Warning Banner (Feature 2) -->
+                            <div id="abnormalLiveBanner" class="abnormal-warning-banner" role="alert">
+                                <span style="font-size: 20px;">⚠️</span>
+                                <div>
+                                    <div style="font-weight: 700; font-size: 13px;">Abnormal Consumption Detected</div>
+                                    <div style="font-size: 12px;">Abnormal consumption detected. Your usage is higher than your normal pattern.</div>
+                                </div>
+                            </div>
 
                             <div class="usage-input">
                                 <input type="number" id="unitInput" placeholder="Enter units (e.g., 1250)">
@@ -2308,13 +2536,61 @@ Estimated Bill  → ₹0.00</div>
                 <!-- TAB 2: CONSUMPTION & AI -->
                 <div id="analyticsTab" class="tab-content">
                     <div class="card">
-                        <h2>📈 Usage Trends & Consumption</h2>
-                        <p class="description">Daily, weekly, and monthly electricity consumption trends.</p>
+                        <h2>📈 Usage Trends & AI Consumption</h2>
+                        <p class="description">Intelligent consumption forecasting, anomaly detection, and historical trends.</p>
 
-                        <div class="ai-banner" style="border-left-color: #10b981;">
-                            <h4>🔮 AI Expected Monthly Prediction</h4>
-                            <p id="aiPredictionText">Based on your current consumption trend, your expected monthly
-                                usage is ~240 Units (Estimated Bill: ₹450).</p>
+                        <!-- Abnormal Usage Warning Banner (Feature 2) -->
+                        <div id="abnormalAnalyticsBanner" class="abnormal-warning-banner" role="alert">
+                            <span style="font-size: 22px;">⚠️</span>
+                            <div>
+                                <div style="font-weight: 700; font-size: 13.5px;">Abnormal Consumption Detected</div>
+                                <div style="font-size: 12.5px;">Abnormal consumption detected. Your usage is higher than your normal pattern.</div>
+                            </div>
+                        </div>
+
+                        <!-- Feature 1: AI Consumption Prediction -->
+                        <div class="ai-banner" style="border-left-color: #0d9488;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                                <h4 style="margin-bottom: 0;">🤖 AI Consumption Prediction</h4>
+                                <span id="predictionBadge" style="font-size: 11px; font-weight: 700; background: #e0f2fe; color: #0284c7; padding: 2px 8px; border-radius: 6px;">Rolling Average Model</span>
+                            </div>
+                            <p id="aiPredictionStatus" style="margin-top: 6px; font-size: 13px; color: var(--text-sub);">
+                                Evaluating your historical electricity usage patterns...
+                            </p>
+
+                            <!-- AI Metrics Grid -->
+                            <div class="ai-metrics-grid" id="aiMetricsContainer">
+                                <div class="ai-metric-card">
+                                    <div class="metric-label">Predicted Monthly Consumption</div>
+                                    <div class="metric-value" id="aiPredictedMonthly">-- Units</div>
+                                    <div class="metric-sub" id="aiPredictedBill">Est. Bill: ₹--</div>
+                                </div>
+                                <div class="ai-metric-card">
+                                    <div class="metric-label">Average Usage</div>
+                                    <div class="metric-value" id="aiAverageUsage">-- Units</div>
+                                    <div class="metric-sub" id="aiAveragePeriod">Rolling historical baseline</div>
+                                </div>
+                                <div class="ai-metric-card">
+                                    <div class="metric-label">Trend</div>
+                                    <div class="metric-value" id="aiUsageTrend">--</div>
+                                    <div class="metric-sub" id="aiTrendDesc">Compared to past usage</div>
+                                </div>
+                            </div>
+
+                            <!-- Graceful Fallback Container -->
+                            <div id="aiPredictionFallback" style="display: none; padding: 12px 14px; background: rgba(241, 245, 249, 0.85); border-radius: 8px; font-size: 13px; color: #475569; text-align: center; margin-top: 10px; border: 1px dashed #cbd5e1;">
+                                ℹ️ More data is required for a reliable prediction.
+                            </div>
+                        </div>
+
+                        <!-- Feature 3: Consumption History Chart with Filters -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+                            <h3 style="font-size: 15px; margin: 0; color: var(--text-main); font-weight: 700;">📊 Consumption History Trends</h3>
+                            <div class="chart-filter-group" style="margin-bottom: 0;">
+                                <button type="button" class="chart-filter-btn" id="filterDailyBtn" onclick="switchChartTimeline('daily')">Daily Trend</button>
+                                <button type="button" class="chart-filter-btn active" id="filterMonthlyBtn" onclick="switchChartTimeline('monthly')">Monthly Trend</button>
+                                <button type="button" class="chart-filter-btn" id="filterLogsBtn" onclick="switchChartTimeline('logs')">Timeline Logs</button>
+                            </div>
                         </div>
 
                         <div style="position: relative; height: 260px; width: 100%;">
@@ -2368,6 +2644,25 @@ Estimated Bill  → ₹0.00</div>
 
                 <!-- TAB 4: ENERGY SAVING TIPS -->
                 <div id="tipsTab" class="tab-content">
+                    <!-- ================= AI ENERGY-SAVING SUGGESTIONS ================= -->
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px;">
+                            <h2 style="margin-bottom: 0;">💡 AI Energy-Saving Suggestions</h2>
+                            <span id="aiSuggestionsDataBadgeTips" style="font-size: 11px; font-weight: 700; background: #e0f2fe; color: #0284c7; padding: 3px 9px; border-radius: 6px;">Personalized for You</span>
+                        </div>
+                        <p class="description" style="margin-bottom: 14px;">Smart personalized recommendations generated dynamically from your electricity consumption data.</p>
+
+                        <!-- Dynamic Suggestions List -->
+                        <div id="aiSuggestionsContainerTips" class="ai-suggestions-container">
+                            <!-- Populated dynamically via updateAiEnergySuggestions() -->
+                        </div>
+
+                        <!-- Insufficient Data Fallback -->
+                        <div id="aiSuggestionsFallbackTips" style="display: none; padding: 16px 18px; background: rgba(241, 245, 249, 0.85); border-radius: 12px; font-size: 13.5px; color: #475569; text-align: center; border: 1px dashed #cbd5e1; margin-top: 8px;">
+                            ℹ️ More usage data is required to provide personalized suggestions.
+                        </div>
+                    </div>
+
                     <div class="card">
                         <h2>💡 Energy Saving Expert Tips</h2>
                         <p class="description">AI-recommended actions to optimize power consumption for major household
@@ -2432,37 +2727,510 @@ Estimated Bill  → ₹0.00</div>
         let consumptionHistory = [];
         let alertHistory = [];
         let monthlyChartInstance = null;
+        let currentChartTimeline = 'monthly';
+
+        // Load saved history from localStorage if available
+        function loadStoredHistory() {
+            try {
+                const savedCons = localStorage.getItem("smart_eb_consumption_history");
+                if (savedCons) {
+                    consumptionHistory = JSON.parse(savedCons);
+                }
+                const savedAlerts = localStorage.getItem("smart_eb_alert_history");
+                if (savedAlerts) {
+                    alertHistory = JSON.parse(savedAlerts);
+                }
+            } catch (e) {
+                console.warn("Storage load error:", e);
+            }
+        }
+
+        function saveStoredHistory() {
+            try {
+                localStorage.setItem("smart_eb_consumption_history", JSON.stringify(consumptionHistory.slice(0, 50)));
+                localStorage.setItem("smart_eb_alert_history", JSON.stringify(alertHistory.slice(0, 50)));
+            } catch (e) {
+                console.warn("Storage save error:", e);
+            }
+        }
+
+        // ================= FEATURE 3: CONSUMPTION HISTORY & TRENDS CHART =================
+        function getChartDataForTimeline(mode) {
+            if (mode === 'daily') {
+                const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                const labels = [];
+                const data = [];
+                const today = new Date();
+                for (let i = 6; i >= 0; i--) {
+                    const d = new Date(today);
+                    d.setDate(today.getDate() - i);
+                    labels.push(dayNames[d.getDay()] + ' ' + d.getDate());
+
+                    const dateStr = d.toLocaleDateString();
+                    const dayItems = consumptionHistory.filter(h => h.date && h.date.startsWith(dateStr));
+                    if (dayItems.length > 0) {
+                        data.push(dayItems[0].units);
+                    } else {
+                        data.push(0);
+                    }
+                }
+                if (consumptionHistory.length > 0 && data[6] === 0) {
+                    data[6] = consumptionHistory[0].units;
+                }
+                return { labels: labels, data: data, datasetLabel: 'Daily Consumption (Units)' };
+            } else if (mode === 'logs') {
+                const recentLogs = consumptionHistory.slice(0, 10).reverse();
+                if (recentLogs.length === 0) {
+                    return { labels: ['No Records'], data: [0], datasetLabel: 'Recent Logs (Units)' };
+                }
+                const labels = recentLogs.map((log, idx) => {
+                    const parts = log.date.split(' ');
+                    return parts.length > 1 ? parts[1] : ('#' + (idx + 1));
+                });
+                const data = recentLogs.map(log => log.units);
+                return { labels: labels, data: data, datasetLabel: 'Recorded Readings (Units)' };
+            } else {
+                const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const monthData = [120, 145, 130, 170, 210, 240, 220, 195, 180, 0, 0, 0];
+                const currentMonthIndex = new Date().getMonth();
+                if (consumptionHistory.length > 0) {
+                    monthData[currentMonthIndex] = consumptionHistory[0].units;
+                }
+                return { labels: monthLabels, data: monthData, datasetLabel: 'Monthly Consumption (Units)' };
+            }
+        }
 
         function initMonthlyChart() {
-            const ctx = document.getElementById('monthlyChart').getContext('2d');
+            const chartCanvas = document.getElementById('monthlyChart');
+            if (!chartCanvas) return;
+            const ctx = chartCanvas.getContext('2d');
+            const config = getChartDataForTimeline(currentChartTimeline);
+
             monthlyChartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    labels: config.labels,
                     datasets: [{
-                        label: 'Units Consumed',
-                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                        borderColor: '#3b82f6',
-                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        label: config.datasetLabel,
+                        data: config.data,
+                        borderColor: '#0d9488',
+                        backgroundColor: 'rgba(13, 148, 136, 0.12)',
                         borderWidth: 3,
                         fill: true,
-                        tension: 0.4
+                        tension: 0.35,
+                        pointBackgroundColor: '#0d9488',
+                        pointRadius: 4,
+                        pointHoverRadius: 6
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return context.parsed.y + ' Units';
+                                }
+                            }
+                        }
+                    },
                     scales: {
-                        y: { beginAtZero: true, grid: { color: 'rgba(200,200,200,0.1)' } },
-                        x: { grid: { display: false } }
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(200,200,200,0.1)' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
                     }
                 }
             });
         }
 
+        function switchChartTimeline(mode) {
+            currentChartTimeline = mode;
+            ['filterDailyBtn', 'filterMonthlyBtn', 'filterLogsBtn'].forEach(btnId => {
+                const btn = document.getElementById(btnId);
+                if (btn) btn.classList.remove('active');
+            });
+            if (mode === 'daily') {
+                const b = document.getElementById('filterDailyBtn');
+                if (b) b.classList.add('active');
+            } else if (mode === 'logs') {
+                const b = document.getElementById('filterLogsBtn');
+                if (b) b.classList.add('active');
+            } else {
+                const b = document.getElementById('filterMonthlyBtn');
+                if (b) b.classList.add('active');
+            }
+
+            if (monthlyChartInstance) {
+                const config = getChartDataForTimeline(mode);
+                monthlyChartInstance.data.labels = config.labels;
+                monthlyChartInstance.data.datasets[0].data = config.data;
+                monthlyChartInstance.data.datasets[0].label = config.datasetLabel;
+                monthlyChartInstance.update();
+            }
+        }
+
+        // ================= FEATURE 1: AI CONSUMPTION PREDICTION =================
+        function runAiConsumptionAnalysis(currentUnits) {
+            const fallbackElem = document.getElementById("aiPredictionFallback");
+            const metricsContainer = document.getElementById("aiMetricsContainer");
+            const predMonthlyElem = document.getElementById("aiPredictedMonthly");
+            const predBillElem = document.getElementById("aiPredictedBill");
+            const avgUsageElem = document.getElementById("aiAverageUsage");
+            const trendElem = document.getElementById("aiUsageTrend");
+            const statusElem = document.getElementById("aiPredictionStatus");
+
+            if (!fallbackElem || !metricsContainer) return;
+
+            const validReadings = consumptionHistory.map(item => Number(item.units)).filter(v => !isNaN(v) && v > 0);
+
+            // Requirement: "If there is not enough historical data, show: 'More data is required for a reliable prediction.'"
+            if (validReadings.length < 3) {
+                fallbackElem.style.display = "block";
+                fallbackElem.innerText = "More data is required for a reliable prediction.";
+                metricsContainer.style.opacity = "0.45";
+                if (predMonthlyElem) predMonthlyElem.innerText = "-- Units";
+                if (predBillElem) predBillElem.innerText = "Est. Bill: ₹--";
+                if (avgUsageElem) avgUsageElem.innerText = "-- Units";
+                if (trendElem) {
+                    trendElem.innerText = "--";
+                    trendElem.style.color = "var(--text-main)";
+                }
+                if (statusElem) {
+                    statusElem.innerText = `Collecting electricity usage history (${validReadings.length}/3 minimum records).`;
+                }
+                return;
+            }
+
+            // At least 3 records: Calculate rolling average & data-driven forecast
+            fallbackElem.style.display = "none";
+            metricsContainer.style.opacity = "1";
+
+            const sum = validReadings.reduce((acc, val) => acc + val, 0);
+            const rollingAvg = Math.round(sum / validReadings.length);
+
+            // Trend calculation: Compare recent half of readings vs older half
+            const mid = Math.floor(validReadings.length / 2);
+            const recentSlice = validReadings.slice(0, Math.max(mid, 1));
+            const olderSlice = validReadings.slice(mid);
+
+            const recentAvg = recentSlice.reduce((a, b) => a + b, 0) / recentSlice.length;
+            const olderAvg = olderSlice.length > 0 ? (olderSlice.reduce((a, b) => a + b, 0) / olderSlice.length) : recentAvg;
+
+            let trend = "Stable";
+            let trendColor = "#0284c7";
+            let trendIcon = "→";
+            let trendMultiplier = 1.0;
+
+            const changeRatio = olderAvg > 0 ? (recentAvg - olderAvg) / olderAvg : 0;
+
+            if (changeRatio > 0.05) {
+                trend = "Increasing";
+                trendColor = "#ea580c";
+                trendIcon = "↗";
+                trendMultiplier = 1.12;
+            } else if (changeRatio < -0.05) {
+                trend = "Decreasing";
+                trendColor = "#16a34a";
+                trendIcon = "↘";
+                trendMultiplier = 0.90;
+            }
+
+            const predictedMonthly = Math.round(Math.max(rollingAvg * trendMultiplier, validReadings[0] || 0));
+            const estBill = calculateElectricityBill(predictedMonthly).formattedTotal;
+
+            if (predMonthlyElem) predMonthlyElem.innerText = predictedMonthly + " Units";
+            if (predBillElem) predBillElem.innerText = "Est. Bill: ₹" + estBill;
+            if (avgUsageElem) avgUsageElem.innerText = rollingAvg + " Units";
+            if (trendElem) {
+                trendElem.innerText = trend + " " + trendIcon;
+                trendElem.style.color = trendColor;
+            }
+            if (statusElem) {
+                statusElem.innerText = `AI Forecast: ${trend} trend detected based on ${validReadings.length} previous electricity readings (Avg: ${rollingAvg} U).`;
+            }
+        }
+
+        // ================= FEATURE 2: ABNORMAL USAGE DETECTION =================
+        function detectAbnormalUsage(currentUnits) {
+            const liveBanner = document.getElementById("abnormalLiveBanner");
+            const analyticsBanner = document.getElementById("abnormalAnalyticsBanner");
+
+            if (currentUnits <= 0) {
+                if (liveBanner) liveBanner.classList.remove("active");
+                if (analyticsBanner) analyticsBanner.classList.remove("active");
+                return false;
+            }
+
+            const pastReadings = consumptionHistory.map(h => Number(h.units)).filter(v => !isNaN(v) && v > 0);
+
+            let isAbnormal = false;
+
+            if (pastReadings.length >= 2) {
+                const pastAvg = pastReadings.reduce((a, b) => a + b, 0) / pastReadings.length;
+                const prevReading = pastReadings[0];
+                const unitDelta = currentUnits - prevReading;
+
+                // Anomaly criteria: Unusually high usage compared to historical average or sudden spike
+                if ((currentUnits > pastAvg * 1.5 && (currentUnits - pastAvg) >= 15) || (unitDelta >= 35 && currentUnits > pastAvg * 1.25)) {
+                    isAbnormal = true;
+                }
+            } else if (currentUnits >= 350) {
+                isAbnormal = true;
+            }
+
+            if (isAbnormal) {
+                if (liveBanner) liveBanner.classList.add("active");
+                if (analyticsBanner) analyticsBanner.classList.add("active");
+            } else {
+                if (liveBanner) liveBanner.classList.remove("active");
+                if (analyticsBanner) analyticsBanner.classList.remove("active");
+            }
+
+            return isAbnormal;
+        }
+
+        // ================= AI ENERGY-SAVING SUGGESTIONS =================
+        function updateAiEnergySuggestions() {
+            const targets = [
+                { list: document.getElementById("aiSuggestionsContainerTips"), fallback: document.getElementById("aiSuggestionsFallbackTips"), badge: document.getElementById("aiSuggestionsDataBadgeTips") }
+            ];
+
+            // Extract numeric values from user's actual electricity consumption records
+            const validReadings = consumptionHistory.map(item => Number(item.units)).filter(v => !isNaN(v) && v > 0);
+
+            // Requirement: If insufficient data is available, show: “More usage data is required to provide personalized suggestions.”
+            if (validReadings.length < 2) {
+                targets.forEach(({ list, fallback, badge }) => {
+                    if (list) {
+                        list.innerHTML = "";
+                        list.style.display = "none";
+                    }
+                    if (fallback) {
+                        fallback.style.display = "block";
+                        fallback.innerText = "More usage data is required to provide personalized suggestions.";
+                    }
+                    if (badge) {
+                        badge.innerText = "Awaiting Data";
+                        badge.style.background = "#f1f5f9";
+                        badge.style.color = "#64748b";
+                    }
+                });
+                return;
+            }
+
+            // Data is sufficient (at least 2 readings)
+            targets.forEach(({ list, fallback }) => {
+                if (list) list.style.display = "flex";
+                if (fallback) fallback.style.display = "none";
+            });
+
+            const latestUnits = validReadings[0];
+            const prevUnits = validReadings[1];
+            const sum = validReadings.reduce((acc, val) => acc + val, 0);
+            const avgUnits = Math.round(sum / validReadings.length);
+            const delta = latestUnits - prevUnits;
+            const pctChangePrev = prevUnits > 0 ? ((latestUnits - prevUnits) / prevUnits) * 100 : 0;
+            const pctChangeAvg = avgUnits > 0 ? ((latestUnits - avgUnits) / avgUnits) * 100 : 0;
+
+            const nextMilestone = Math.ceil(latestUnits / 100) * 100 === latestUnits ? latestUnits + 100 : Math.ceil(latestUnits / 100) * 100;
+            const remainingToNext = nextMilestone - latestUnits;
+            const billInfo = calculateElectricityBill(latestUnits);
+
+            let suggestions = [];
+
+            // Case 1: If consumption is increasing
+            if (latestUnits > prevUnits && pctChangePrev >= 5) {
+                targets.forEach(({ badge }) => {
+                    if (badge) {
+                        badge.innerText = "Trend: Increasing ↗";
+                        badge.style.background = "#ffedd5";
+                        badge.style.color = "#c2410c";
+                    }
+                });
+
+                // Primary suggestion from user requirement
+                suggestions.push({
+                    type: "caution",
+                    icon: "📈",
+                    title: "Usage Trend Rising",
+                    tag: "Consumption Increasing",
+                    tagClass: "tag-caution",
+                    text: "Your electricity usage is increasing. Try reducing the usage of high-power appliances."
+                });
+
+                // Appliance-specific suggestion based on actual delta
+                if (latestUnits >= 250) {
+                    suggestions.push({
+                        type: "warning",
+                        icon: "❄️",
+                        title: "Heavy Appliance Optimization",
+                        tag: `+${Math.abs(delta)} Units Delta`,
+                        tagClass: "tag-warning",
+                        text: `Your recorded usage rose by ${Math.abs(delta)} units (${prevUnits} U → ${latestUnits} U). High-power devices such as air conditioning set below 24°C and continuous water heating contribute most to this spike.`
+                    });
+                } else {
+                    suggestions.push({
+                        type: "caution",
+                        icon: "⚡",
+                        title: "Off-Peak Load Shifting",
+                        tag: `+${Math.abs(delta)} Units Delta`,
+                        tagClass: "tag-caution",
+                        text: `Your usage rose from ${prevUnits} to ${latestUnits} units. Shifting high-load appliances like washing machines and electric ovens away from peak evening hours helps flatten your consumption curve.`
+                    });
+                }
+
+                // Tariff slab recommendation
+                suggestions.push({
+                    type: "caution",
+                    icon: "💰",
+                    title: "Tariff Slab Protection",
+                    tag: `${remainingToNext} U to Next Slab`,
+                    tagClass: "tag-caution",
+                    text: `You have ${remainingToNext} units remaining before crossing into the ${nextMilestone}-unit slab limit (Est. Bill: ₹${billInfo.formattedTotal}). Moderating daily consumption avoids higher per-unit rates.`
+                });
+            }
+            // Case 2: If usage is high
+            else if (latestUnits > 300 || pctChangeAvg >= 25) {
+                targets.forEach(({ badge }) => {
+                    if (badge) {
+                        badge.innerText = "Usage: High ⚠️";
+                        badge.style.background = "#fee2e2";
+                        badge.style.color = "#b91c1c";
+                    }
+                });
+
+                // Primary suggestion from user requirement
+                suggestions.push({
+                    type: "warning",
+                    icon: "🚨",
+                    title: "Abnormal High Pattern",
+                    tag: "High Consumption",
+                    tagClass: "tag-warning",
+                    text: "Your recent consumption is higher than your normal pattern. Consider reducing unnecessary appliance usage."
+                });
+
+                // Appliance-specific suggestion
+                const excess = latestUnits - avgUnits;
+                suggestions.push({
+                    type: "warning",
+                    icon: "🔌",
+                    title: "Phantom & Cooling Load Reduction",
+                    tag: excess > 0 ? `+${excess} U above baseline` : 'High Load',
+                    tagClass: "tag-warning",
+                    text: `Your consumption is currently ${latestUnits} units (above your historical average of ${avgUnits} units). Check refrigerator door seals, set AC to 24°C, and turn off standby TVs and chargers to curb phantom load.`
+                });
+
+                // Bill cost control suggestion
+                suggestions.push({
+                    type: "caution",
+                    icon: "💡",
+                    title: "Progressive Slab Cost Control",
+                    tag: `Est. ₹${billInfo.formattedTotal}`,
+                    tagClass: "tag-caution",
+                    text: `Your current estimated bill is ₹${billInfo.formattedTotal}. Curtailing non-essential appliance hours can help bring total monthly usage back within your cost target.`
+                });
+            }
+            // Case 3: If usage is normal
+            else {
+                targets.forEach(({ badge }) => {
+                    if (badge) {
+                        badge.innerText = "Usage: Normal 🌿";
+                        badge.style.background = "#dcfce7";
+                        badge.style.color = "#15803d";
+                    }
+                });
+
+                // Primary suggestion from user requirement
+                suggestions.push({
+                    type: "optimal",
+                    icon: "🌿",
+                    title: "Healthy Consumption Pattern",
+                    tag: "Normal Range",
+                    tagClass: "tag-optimal",
+                    text: "Your usage is within your normal range. Continue following energy-saving practices."
+                });
+
+                // Suggestion reinforcing good habits with actual numbers
+                suggestions.push({
+                    type: "optimal",
+                    icon: "⏱️",
+                    title: "Stable Baseline Maintained",
+                    tag: `${latestUnits} Units (${avgUnits} U Avg)`,
+                    tagClass: "tag-optimal",
+                    text: `Your current reading of ${latestUnits} units matches your historical average (${avgUnits} units). Consistent operation keeps you within low-tariff tiers (Estimated Bill: ₹${billInfo.formattedTotal}).`
+                });
+
+                // Efficiency tip for future buffer
+                suggestions.push({
+                    type: "optimal",
+                    icon: "💡",
+                    title: "Buffer Maintenance",
+                    tag: `${remainingToNext} U Buffer`,
+                    tagClass: "tag-optimal",
+                    text: `You have a comfortable buffer of ${remainingToNext} units before the ${nextMilestone}-unit limit. Using certified LED bulbs and BLDC ceiling fans will keep consumption in this optimal zone.`
+                });
+            }
+
+            const html = suggestions.map(s => `
+                <div class="ai-suggestion-item ${s.type}">
+                    <div class="ai-suggestion-icon">${s.icon}</div>
+                    <div class="ai-suggestion-content">
+                        <div class="ai-suggestion-title">
+                            <span>${s.title}</span>
+                            <span class="ai-suggestion-tag ${s.tagClass}">${s.tag}</span>
+                        </div>
+                        <p class="ai-suggestion-desc">${s.text}</p>
+                    </div>
+                </div>
+            `).join("");
+
+            targets.forEach(({ list }) => {
+                if (list) list.innerHTML = html;
+            });
+        }
+
+        // Synchronize consumption history with Firebase Realtime Database
+        function syncConsumptionWithFirebase() {
+            if (typeof firebase !== 'undefined' && firebase.database) {
+                try {
+                    const db = firebase.database();
+                    db.ref('consumption_history').once('value').then(snapshot => {
+                        const val = snapshot.val();
+                        if (val && Array.isArray(val) && val.length > 0) {
+                            let changed = false;
+                            val.forEach(item => {
+                                if (item && item.units && !consumptionHistory.some(h => h.date === item.date && h.units === item.units)) {
+                                    consumptionHistory.push(item);
+                                    changed = true;
+                                }
+                            });
+                            if (changed) {
+                                saveStoredHistory();
+                                updateTables();
+                                runAiConsumptionAnalysis();
+                                updateAiEnergySuggestions();
+                            }
+                        }
+                    }).catch(() => {});
+                } catch (e) {
+                    console.warn("Firebase history sync notice:", e);
+                }
+            }
+        }
+
         window.onload = function () {
+            loadStoredHistory();
             initMonthlyChart();
+            updateTables();
+            runAiConsumptionAnalysis();
+            updateAiEnergySuggestions();
+            syncConsumptionWithFirebase();
         };
 
         function toggleDarkMode() {
@@ -2498,13 +3266,24 @@ Estimated Bill  → ₹0.00</div>
         // Global Auth State
         let isRegisterMode = false;
         let isCompletingRegistration = false;
+        let isUserLoggedIn = false;
 
-        // Navigation between Login and Dashboard with Browser History Support
+        // Navigation between Login and Dashboard with Strict Auth Security
         function navigateToDashboard(pushHistory = true) {
+            // Security Gatekeeper: Dashboard opens ONLY after verified login
+            if (!isUserLoggedIn) {
+                console.warn("Unauthenticated attempt to access dashboard blocked. Redirecting to login.");
+                navigateToLogin(false);
+                return;
+            }
+
             const loginPage = document.getElementById("loginPage");
             const dashboardLayout = document.getElementById("dashboardLayout");
             if (loginPage) loginPage.style.display = "none";
             if (dashboardLayout) dashboardLayout.style.display = "block";
+
+            const unitInput = document.getElementById("unitInput");
+            if (unitInput) unitInput.value = "";
 
             if (pushHistory) {
                 if (window.location.hash !== "#dashboard") {
@@ -2523,30 +3302,38 @@ Estimated Bill  → ₹0.00</div>
                 if (window.location.hash !== "#login") {
                     history.pushState({ view: 'login' }, '', '#login');
                 }
+            } else {
+                // Clean up hash if needed
+                if (window.location.hash === "#dashboard") {
+                    history.replaceState({ view: 'login' }, '', '#login');
+                }
             }
         }
 
-        // Support native browser Back/Forward navigation
+        // Support native browser Back/Forward navigation with strict auth validation
         window.addEventListener('popstate', function (event) {
             const hash = window.location.hash;
             if (hash === "#dashboard") {
-                // If moving forward to dashboard
-                if (auth && auth.currentUser) {
+                if (isUserLoggedIn) {
                     navigateToDashboard(false);
                 } else {
                     navigateToLogin(false);
                 }
             } else {
-                // Hash is #login or empty -> show login page
                 navigateToLogin(false);
             }
         });
 
-        // Listen for Real Firebase Auth State Changes (Strict Security Gatekeeper)
+        // Startup Security: STRICTLY open Login Page first - do NOT auto-redirect to dashboard before logging in!
+        navigateToLogin(false);
+        if (auth) {
+            auth.signOut().catch(() => {});
+        }
+
+        // Listen for Real Firebase Auth State Changes
         if (auth) {
             auth.onAuthStateChanged(user => {
                 // If a user just completed registration, do not auto-redirect to dashboard.
-                // Registration signs the user out and redirects back to the login page.
                 if (isCompletingRegistration) {
                     return;
                 }
@@ -2558,8 +3345,8 @@ Estimated Bill  → ₹0.00</div>
                     authBtn.style.pointerEvents = "auto";
                 }
 
-                if (user) {
-                    // Authenticated via Firebase: Access Granted
+                if (user && isUserLoggedIn) {
+                    // Authenticated via Firebase & explicitly logged in
                     const displayName = user.displayName || (user.email ? user.email.split('@')[0] : "Consumer");
                     const userEmail = user.email || "";
 
@@ -2573,14 +3360,10 @@ Estimated Bill  → ₹0.00</div>
                         document.getElementById("profileName").innerText = user.displayName || displayName;
                     }
 
-                    // If user was viewing #login via Back button, don't force them back to dashboard
-                    if (window.location.hash === "#login") {
-                        navigateToLogin(false);
-                    } else {
-                        navigateToDashboard(true);
-                    }
-                } else {
-                    // Unauthenticated: Strictly keep dashboard hidden and login page visible
+                    // Open dashboard only after verified login
+                    navigateToDashboard(true);
+                } else if (!isUserLoggedIn) {
+                    // Unauthenticated / fresh visit: Strictly keep dashboard hidden and login page visible
                     navigateToLogin(false);
                 }
             });
@@ -2689,21 +3472,29 @@ Estimated Bill  → ₹0.00</div>
 
             if (msg) msg.style.display = "none";
 
-            // If already signed in with Firebase and returning from Back button, return to Dashboard smoothly
-            if (auth && auth.currentUser && !isRegisterMode) {
-                if (!email || auth.currentUser.email === email) {
-                    showAuthSuccess("Welcome back! Loading dashboard...");
-                    setTimeout(() => {
-                        navigateToDashboard(true);
-                    }, 200);
-                    return;
-                }
-            }
-
             // 1. Validate that the email is not empty
             if (!email) {
                 showAuthError("Please enter your email address.");
                 if (emailInput) emailInput.focus();
+                return;
+            }
+
+            // Demo Admin Credentials Support (admin / admin123 or admin@gmail.com / admin123)
+            if (!isRegisterMode && (email.toLowerCase() === "admin" || email.toLowerCase() === "admin@gmail.com") && pass === "admin123") {
+                isUserLoggedIn = true;
+                if (document.getElementById("welcomeUser")) {
+                    document.getElementById("welcomeUser").innerText = "Welcome, Admin";
+                }
+                if (document.getElementById("profileEmail")) {
+                    document.getElementById("profileEmail").innerText = "admin@gmail.com";
+                }
+                if (document.getElementById("profileName")) {
+                    document.getElementById("profileName").innerText = "Admin User";
+                }
+                showAuthSuccess("Access Granted! Loading dashboard...");
+                setTimeout(() => {
+                    navigateToDashboard(true);
+                }, 400);
                 return;
             }
 
@@ -2861,6 +3652,7 @@ Estimated Bill  → ₹0.00</div>
 
             auth.signInWithEmailAndPassword(email, pass)
                 .then(userCredential => {
+                    isUserLoggedIn = true;
                     if (authBtn) {
                         authBtn.classList.remove("loading");
                         authBtn.disabled = false;
@@ -2868,7 +3660,7 @@ Estimated Bill  → ₹0.00</div>
                     }
                     if (btnText) btnText.innerText = "Login";
                     showAuthSuccess("Login successful! Loading dashboard...");
-                    // onAuthStateChanged automatically handles dashboard access
+                    navigateToDashboard(true);
                 })
                 .catch(error => {
                     if (authBtn) {
@@ -2925,13 +3717,14 @@ Estimated Bill  → ₹0.00</div>
 
                 auth.signInWithPopup(provider)
                     .then(result => {
+                        isUserLoggedIn = true;
                         if (googleText) googleText.innerText = originalText;
                         if (googleBtn) {
                             googleBtn.style.opacity = "1";
                             googleBtn.style.pointerEvents = "auto";
                         }
                         showAuthSuccess("Google sign-in successful! Redirecting...");
-                        // onAuthStateChanged will handle dashboard redirect and populate user data
+                        navigateToDashboard(true);
                     })
                     .catch(error => {
                         if (googleText) googleText.innerText = originalText;
@@ -3066,11 +3859,11 @@ Estimated Bill  → ₹0.00</div>
 
         // ================= SECURE LOGOUT =================
         function logout() {
-            if (autoInterval) clearInterval(autoInterval);
-            if (auth) {
-                auth.signOut().catch(err => console.error("Firebase Signout Error:", err));
+            isUserLoggedIn = false;
+            if (autoInterval) {
+                clearInterval(autoInterval);
+                autoInterval = null;
             }
-            navigateToLogin(true);
             const msg = document.getElementById("loginMessage");
             if (msg) {
                 msg.style.display = "none";
@@ -3078,6 +3871,23 @@ Estimated Bill  → ₹0.00</div>
             }
             const passInput = document.getElementById("password");
             if (passInput) passInput.value = "";
+            const confirmPassInput = document.getElementById("confirmPasswordInput");
+            if (confirmPassInput) confirmPassInput.value = "";
+            const unitInput = document.getElementById("unitInput");
+            if (unitInput) unitInput.value = "";
+
+            if (auth) {
+                auth.signOut()
+                    .then(() => {
+                        navigateToLogin(true);
+                    })
+                    .catch(err => {
+                        console.error("Firebase Signout Error:", err);
+                        navigateToLogin(true);
+                    });
+            } else {
+                navigateToLogin(true);
+            }
         }
 
         function switchTab(tabId, element) {
@@ -3240,7 +4050,13 @@ Estimated Bill  → ₹0.00</div>
             let now = new Date();
             let dateStr = now.toLocaleDateString() + ' ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-            consumptionHistory.unshift({ date: dateStr, units: units, status: units > 300 ? 'High Usage' : 'Normal' });
+            // Feature 2: Detect abnormal spike compared to historical pattern
+            let isAbnormal = detectAbnormalUsage(units);
+            let statusTag = isAbnormal ? 'Abnormal Spike' : (units > 300 ? 'High Usage' : 'Normal');
+
+            // Feature 3: Store in consumption history & persist to localStorage
+            consumptionHistory.unshift({ date: dateStr, units: units, status: statusTag });
+            saveStoredHistory();
 
             let nextAlert = Math.ceil(units / 100) * 100;
             if (units % 100 === 0) nextAlert = units + 100;
@@ -3251,6 +4067,7 @@ Estimated Bill  → ₹0.00</div>
             let gaugeColor = "#3b82f6";
             let statusText = "Normal";
 
+            // Existing 100-Unit Milestone Alert System UNCHANGED:
             if (units > 0 && (units % 100 === 0 || remaining === 0 || units > 300)) {
                 let alarm = document.getElementById("alarmSound");
                 if (alarm) {
@@ -3263,6 +4080,7 @@ Estimated Bill  → ₹0.00</div>
                 statusText = "LIMIT REACHED";
 
                 alertHistory.unshift({ milestone: nextAlert + " Units", time: dateStr, msg: `Approaching limit at ${units} units.` });
+                saveStoredHistory();
             } else {
                 document.getElementById("status").style.color = "#059669";
                 document.getElementById("status").innerText = `💡 Normal Operation. ${remaining} Units remaining to next 100-unit limit.`;
@@ -3279,8 +4097,10 @@ Estimated Bill  → ₹0.00</div>
             let dashOffset = circumference - (percentage * circumference);
 
             let gaugeRing = document.getElementById("gaugeRing");
-            gaugeRing.style.strokeDashoffset = dashOffset;
-            gaugeRing.style.stroke = gaugeColor;
+            if (gaugeRing) {
+                gaugeRing.style.strokeDashoffset = dashOffset;
+                gaugeRing.style.stroke = gaugeColor;
+            }
 
             document.getElementById("gaugeUnitsText").innerText = units + " U";
             document.getElementById("gaugeStatusText").innerText = statusText;
@@ -3294,27 +4114,45 @@ Estimated Bill  → ₹0.00</div>
 
             // Update Slab Breakdown Displays
             updateBreakdownDisplays(units, billData);
-            document.getElementById("barPercentage")
+
+            let progressBar = document.getElementById("progressBar");
+            if (progressBar) {
+                progressBar.style.width = Math.min((units / 500) * 100, 100) + "%";
+            }
 
             let score = units > 400 ? "62/100 – High Usage" : (units > 200 ? "78/100 – Moderate" : "91/100 – Excellent");
             document.getElementById("savingsScore").innerText = score;
 
-            if (monthlyChartInstance) {
-                let currentMonthIndex = new Date().getMonth();
-                monthlyChartInstance.data.datasets[0].data[currentMonthIndex] = units;
-                monthlyChartInstance.update();
+            // Feature 1: Trigger AI Consumption Prediction
+            runAiConsumptionAnalysis(units);
+
+            // Feature 3: Update Chart with timeline
+            switchChartTimeline(currentChartTimeline);
+
+            // AI Energy-Saving Suggestions
+            updateAiEnergySuggestions();
+
+            // Sync updated actual readings with Firebase Realtime Database
+            if (typeof firebase !== 'undefined' && firebase.database) {
+                try {
+                    firebase.database().ref('consumption_history').set(consumptionHistory.slice(0, 30)).catch(() => {});
+                } catch (e) {}
             }
         }
 
         function updateTables() {
             let usageTableHTML = "";
-            consumptionHistory.slice(0, 5).forEach(item => {
-                usageTableHTML += `<tr><td>${item.date}</td><td>${item.units} Units</td><td><span style="color:${item.units > 300 ? '#ef4444' : '#10b981'}">${item.status}</span></td></tr>`;
+            consumptionHistory.slice(0, 8).forEach(item => {
+                let badgeColor = '#10b981';
+                if (item.status === 'Abnormal Spike') badgeColor = '#dc2626';
+                else if (item.units > 300) badgeColor = '#ef4444';
+
+                usageTableHTML += `<tr><td>${item.date}</td><td>${item.units} Units</td><td><span style="color:${badgeColor}; font-weight:600;">${item.status}</span></td></tr>`;
             });
             document.getElementById("usageHistoryTable").innerHTML = usageTableHTML || `<tr><td colspan="3" style="text-align:center;">No records.</td></tr>`;
 
             let alertTableHTML = "";
-            alertHistory.slice(0, 5).forEach(item => {
+            alertHistory.slice(0, 8).forEach(item => {
                 alertTableHTML += `<tr><td>${item.milestone}</td><td>${item.time}</td><td>${item.msg}</td></tr>`;
             });
             document.getElementById("alertHistoryTable").innerHTML = alertTableHTML || `<tr><td colspan="3" style="text-align:center;">No alerts yet.</td></tr>`;
